@@ -1,0 +1,105 @@
+html{
+	
+	background-image: url("../images/sea.jpg");
+}
+
+#wrapper {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header {
+	background-image: url("../images/wood.jpg");
+	color : white;
+	padding: 15px;
+	padding-top: 25px;
+	padding-bot: 25px;
+}
+
+h1{
+	margin: 2px;
+	font-size: 65px;
+}
+
+h3{
+	font-size: 20px;	
+}
+
+#titrePage{
+	padding: 3px;
+	padding-left: 130px;
+	margin: 2px;
+}
+
+#logo{
+	
+	background-image: url("../images/baguettes.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 10px;
+	padding: 3px;
+	float: left;
+	height:100px;
+	width:100px;
+	border: 4px solid #FFF;
+}
+
+
+body{
+	background-image: url("../images/lightwood.jpg");
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#menu{
+	
+	background-color: #A04000;
+	height: 40px;
+	
+}
+
+ul{
+	margin: 0px;
+	padding-top: 10px;
+	padding-bot; 5px;
+}
+
+#menu li{
+	display: inline-block; 
+}
+
+#menu li:hover{
+	background-color: ; 
+}
+
+
+.figure{
+	float: left;
+}
+.figure img{
+	
+	border: 1px solid #000;
+	
+	
+	
+}
+
+#popular{
+	border: 2px solid #000;
+	float: right;
+	
+}
+
+#popular li{list-style-type: none;}
+
+#grosBlock{float: left;}
+
+#contact{
+	border: 2px solid #000;
+	float: left;
+	
+}
+
+.clear{clear: both;}

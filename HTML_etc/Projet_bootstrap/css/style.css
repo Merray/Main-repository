@@ -1,0 +1,84 @@
+body{
+	
+	background-image: url("../images/wood.jpg");
+}
+
+
+
+header{
+	
+	min-height: 400px;
+	background-color: white;
+}
+
+.gauche, .droite{
+	
+	min-height: 750px;
+}
+
+
+footer{
+	
+	min-height: 50px;
+	padding-top: 10px;
+	padding-left: 10px;
+	background-color: black;
+	color: white;
+	text-shadow: white;
+}
+
+.card {
+	
+	display: inline-block;
+	margin: 50px;
+	background-color: #f2f2f2;
+}
+
+.modal{
+	text-align: center;
+}
+
+.list-group{
+	margin-top: 15px;
+}
+
+img {border: 1px solid black;}
+
+.gauche, .droite{
+	
+	background-color: white;
+	
+}
+
+.mail{text-align: right;}
+
+
+
+td{	border: 1px solid #ccc;
+	background-color: #ddd;
+	width: 30px;
+	height: 30px;
+	text-align: center;}
+	
+	
+.cell{
+	
+
+	visibility: hidden;
+}	
+	
+.list-group-item-action{
+	
+	background-color: #f2f2f2
+	
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ham&Co Official website</title>
+		<link rel="stylesheet" href="../CSS/style.css" /> 
+	</head>
+	<body>
+	<div id="wrapper">
+		<figure>
+			<img src="../Images/Entete.png" alt="">
+		</figure>
+		<section>
+			<h3>Menu</h3>
+			<ul>
+				<li><a href="#" title="Accueil">Accueil</a></li>
+				<li><a href="#" title="Articles">Liste des articles</a>
+					<ul>
+						<li><a href="articles.html" target="blank" title="Nos meilleurs produits par catégorie">Par catégorie</a></li>
+						<li><a href="#" title="Nos meilleurs produits par prix">Par prix</a></li>
+					</ul>
+				</li>
+				<li><a href="#" title="A propos de notre site">A propos</a></li>
+				<li><a href="#" title="Contactez-nous">Contact</a></li>
+			</ul>
+			<p>
+				<a href="#" title="Accueil">Accueil</a> > <a href="#" title="Inscrivez-vous">Inscription</a> > Ajouter
+			</p>
+		</section>
+		<section>
+			<h1>Formulaire d'inscription</h1>
+				<p>Ce formulaire a pour but de :</p>
+				<ul>
+					<li>Vous inscrire</li>
+					<li>Vous permettre de recevoir les dernières offres</li>
+					<li>Rejoindre une communauté</li>
+				</ul>
+				<p>Si vous ne souhaitez pas vous inscrire, vous pouvez revenir à l'<a href="#" title="Accueil">Accueil</a></p>
+			</section>
+			<section>
+				<form action="#">
+				<div>
+					<label for="nom">Nom</label>
+					<input id="nom" type="text" placeholder="Votre nom"/>
+				</div>
+				<div>
+					<label for="prenom">Prénom</label>
+					<input id="prenom" type="text" placeholder="Votre nom"/>
+				</div>
+				<div>
+					<label for="date">Date de naissance</label>
+					<input id="date" type="date"/>
+				</div>
+				<div>
+					<label for="desc">Description</label>
+					<input id="desc" type="text" placeholder="Dites nous tout"/>
+				</div>
+				<div>
+					<label for="desc">Nationalité</label>
+					<select>
+						<option selected="selected" disabled="disabled"> Liste des pays...
+						<option> France
+						<option> Angleterre
+						<option> Espagne
+						<option> Trop de pays
+					</select>
+				</div>
+				<div>
+					<p>Sexe :</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="homme">Homme</label>
+						<input id="homme" type="radio" name="gender" checked="checked"/> 
+					</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="femme">Femme</label> 
+						<input id="femme" type="radio" name="gender"/> 
+					</p>
+				</div>
+				<div>
+					<p>Musique :</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="rock">Rock</label>
+						<input id="rock" type="checkbox"/> 
+					</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="hip-hop">Hip-Hop</label>
+						<input id="hip-hop" type="checkbox"/> 
+					</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="pop">Pop</label>
+						<input id="pop" type="checkbox"/> 
+					</p>
+					<p> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="classique">Classique</label>
+						<input id="classique" type="checkbox"/> 
+					</p>
+				</div>
+				<div>
+					<input id="reinit" type="reset" value="Reset"/>
+				</div>
+				<div>
+					<input id="ok" type="submit" value="OK"/>
+				</div>
+				<div>
+					<p>Copyright 2018: <a href="#" title="Mon site internet">Jimmy CARRILLO</a></p>
+				</div>
+			</form>
+		</section>
+	</div>
+	</body>
+</html>

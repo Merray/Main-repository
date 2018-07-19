@@ -1,0 +1,22 @@
+.col-sm-12, .col-sm-4, .col-sm-8{
+	
+	border: 1px solid black;
+}
+
+.head{
+	height: 70px;
+	text-align: center;
+	padding: 20px; 
+}
+
+.gauche, .droite{
+	height: 500px;
+	text-align: center;
+	padding: 20px;
+}
+
+.foot{
+	height: 50px;
+	text-align: center;
+	padding-top: 10px;
+}

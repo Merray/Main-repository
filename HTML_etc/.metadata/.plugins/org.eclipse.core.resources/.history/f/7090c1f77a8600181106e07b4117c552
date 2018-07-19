@@ -1,0 +1,22 @@
+
+function bonjour(){
+	
+	console.log("Hello");
+}
+
+function changeJoueur(joueur)
+
+function morpion(){
+	
+	var player = 2;
+	var win = 1;
+	
+	while (win == 1) {
+	    
+		changeJoueur();
+		
+		
+		
+	}
+	
+}

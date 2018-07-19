@@ -1,0 +1,36 @@
+@font-face {
+	font-family: font;
+	src: url(../Font/font3.ttf)
+}
+
+a:link {
+	color: #F00
+}
+
+a:visited {
+	color: #0F0
+}
+
+a:hover {
+	color: #F0F
+}
+
+a:active {
+	color: #00F
+}
+
+html {
+	font-family: font;
+	background-color: pink;
+	color: purple;
+}
+
+img{
+	border-radius: 15px;
+}
+
+#wrapper{
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}

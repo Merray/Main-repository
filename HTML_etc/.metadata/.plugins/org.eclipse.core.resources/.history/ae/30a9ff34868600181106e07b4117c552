@@ -1,0 +1,15 @@
+table, td{
+	
+	border: 1px solid black;
+	text-align:   center;
+	margin-left: 450px;
+	margin-bottom: 10px;
+}
+
+footer{
+	
+	background-color: grey;
+	color: white;
+	
+}
+

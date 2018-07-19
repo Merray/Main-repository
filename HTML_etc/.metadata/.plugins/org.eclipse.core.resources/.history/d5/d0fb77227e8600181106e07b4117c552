@@ -1,0 +1,45 @@
+
+function bonjour(){
+	
+	console.log("Hello");
+}
+
+
+
+function changePlayer(joueur){
+	
+	if(joueur == 1){
+		joueur = 2;
+	}
+	else{
+		joueur = 1;
+	}
+	
+	return joueur;
+}
+
+function applyTocken(joueur, bouton){
+	
+	if (joueur == 1){
+		
+		$(bouton).val("X")
+		
+	}
+}
+
+
+function morpion(){
+	
+	var player = 2;
+	var win = 1;
+	
+	//while (win == 1) {
+	    
+		player = changePlayer(player);
+		
+		$(".afficheJoueur").html("Joueur : 	"+player);
+		
+		$("button").click(applyTocken(player, this))
+	//}
+	
+}
