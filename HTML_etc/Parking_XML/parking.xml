@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE container [
+  <!ELEMENT container (villes*,parkings*)>
+  <!ELEMENT villes (ville*)>
+  <!ELEMENT ville (id, nomVille, pays)>  
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT nomVille (#PCDATA)>
+  <!ELEMENT pays (#PCDATA)>
+  <!ELEMENT parkings (parking*)>
+  <!ELEMENT parking (nomParking, adresse, villeId, voitures?)>
+  <!ELEMENT nomParking (#PCDATA)>
+  <!ELEMENT adresse (#PCDATA)>
+  <!ELEMENT villeId (#PCDATA)>
+  <!ELEMENT voitures (voiture*)>
+  <!ELEMENT voiture (marque, model, plaque)>
+  <!ELEMENT marque (#PCDATA)>
+  <!ELEMENT model (#PCDATA)>
+  <!ELEMENT plaque (#PCDATA)>
+]>
+
+<container>
+
+	<villes>
+		<ville>
+			<id>v1</id>
+			<nomVille>Paris</nomVille>
+			<pays>France</pays>
+		</ville>
+		<ville>
+			<id>v2</id>
+			<nomVille>Madrid</nomVille>
+			<pays>Espagne</pays>
+		</ville>
+	</villes>
+	<parkings>
+		<parking>
+			<nomParking>Les petits pneus</nomParking>
+			<adresse>8 rue de la voiture</adresse>
+			<villeId>v1</villeId>
+			<voitures>
+				<voiture>
+					<marque>Peugeot</marque>
+					<model>406</model>
+					<plaque>25 ITF 75</plaque>
+					
+				</voiture >
+				<voiture>
+					<marque>Toyota</marque>
+					<model>Yaris</model>
+					<plaque>2345 ABC</plaque>
+					
+				</voiture>	
+			</voitures>
+		
+		</parking >
+		<parking>
+			<nomParking>Los coches de los amigos</nomParking>
+			<adresse>3 rua de la nieve</adresse>
+			<villeId>v2</villeId>
+			<voitures>
+				<voiture>
+					<marque>Renault</marque>
+					<model>19</model>
+					<plaque>42 GHT 77</plaque>
+				</voiture >
+				<voiture>
+					<marque>Suzuki</marque>
+					<model>Moisi</model>
+					<plaque>4852 RT</plaque>
+				</voiture>	
+			</voitures>
+		
+		</parking>
+
+	</parkings>
+	
+
+
+
+
+</container>

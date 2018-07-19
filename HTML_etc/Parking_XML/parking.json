@@ -1,0 +1,56 @@
+{
+	"container": [
+		{
+			"villes": [
+				{
+					"id": 1,
+					"nomVille": "Paris",
+					"pays": "France"
+				},
+				{
+					"id": 2,
+					"nomVille": "Madrid",
+					"pays": "Espagne"
+				}
+			]
+		},
+		{
+			"parkings": [
+				{
+					"nomParking": "Les petits pneus",
+					"adresse": "8 rue de la voiture",
+					"villeId": 1,
+					"voitures": [
+						{
+							"marque": "Peugeot",
+							"model": "406",
+							"plaque": "25 ITF 75"
+						},
+						{
+							"marque": "Toyota",
+							"model": "Yaris",
+							"plaque": "2345 ABC"
+						}
+					]
+				},
+				{
+					"nomParking": "Los coches de los amigos",
+					"adresse": "3 rua de la nieve",
+					"villeId": 2,
+					"voitures": [
+						{
+							"marque": "Renault",
+							"model": "19",
+							"plaque": "42 GHT 77"
+						},
+						{
+							"marque": "Suzuki",
+							"model": "Moisi",
+							"plaque": "4852 RT"
+						}
+					]
+				}
+			]
+		}
+	]
+}
