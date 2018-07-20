@@ -1,8 +1,0 @@
-table, td{
-	
-	border: 1px solid black;
-	text-align:   center;
-	margin-left: 200px;
-	margin-bot: 10px;
-}
-
