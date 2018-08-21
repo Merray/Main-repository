@@ -3,37 +3,54 @@ package persos;
 import java.util.Random;
 import java.util.Scanner;
 
-import equipements.Equipement;
 import equipements.Jambes;
 import equipements.MainDroite;
 import equipements.MainGauche;
 import equipements.Tete;
 import equipements.Torse;
 
-public class Player extends Character {
+public class Player implements Attacker<Monster> {
 
-	
+	private String name;
+	private Integer pvMax, pv, sTr, mag, pDef, mDef, con;
 	private MainDroite mainDroite;
 	private MainGauche mainGauche;
 	private Torse torse;
 	private Jambes jambes;
 	private Tete tete;
-	
+	private Inventaire inventaire;
+
 	public Player() {
-		super();
 	}
 
 	public Player(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con) {
-		super(name, pvMax, sTr, mag, pDef, mDef, con);
+		this.name = name;
+		this.pvMax = pvMax;
+		pv = pvMax;
+		this.sTr = sTr;
+		this.mag = mag;
+		this.pDef = pDef;
+		this.mDef = mDef;
+		this.con = con;
+		this.inventaire = Inventaire.RIEN;
 	}
 
-	public Player(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con, MainDroite mainDroite, MainGauche mainGauche, Torse torse, Jambes jambes, Tete tete) {
-		super(name, pvMax, sTr, mag, pDef, mDef, con);
+	public Player(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con,
+			MainDroite mainDroite, MainGauche mainGauche, Torse torse, Jambes jambes, Tete tete) {
+		this.name = name;
+		this.pvMax = pvMax;
+		pv = pvMax;
+		this.sTr = sTr;
+		this.mag = mag;
+		this.pDef = pDef;
+		this.mDef = mDef;
+		this.con = con;
 		this.mainDroite = mainDroite;
 		this.mainGauche = mainGauche;
 		this.torse = torse;
 		this.jambes = jambes;
 		this.tete = tete;
+		this.inventaire = Inventaire.RIEN;
 	}
 
 	// Affiche les stats
@@ -66,7 +83,7 @@ public class Player extends Character {
 
 	}
 
-	private static Integer randomNumber(Integer min, Integer max) {
+	public static Integer randomNumber(Integer min, Integer max) {
 		if (min >= max) {
 			throw new IllegalArgumentException("Max must be greater than min");
 		}
@@ -75,8 +92,42 @@ public class Player extends Character {
 		return r.nextInt((max - min) + 1) + min;
 
 	}
-	
 
+	@Override
+	public boolean do_p_dmg(Monster ennemy) {
+
+		Integer randDmg = randomNumber(1, 4);
+		Integer dmg = this.sTr - ennemy.getpDef() + randDmg;
+
+		ennemy.setPv(ennemy.getPv() - dmg);
+
+		if (dmg <= 0) {
+			System.out.println("\n" + ennemy.getName() + " a évité l'attaque de " + this.name);
+		} else {
+			System.out.println("\n" + dmg + " dégats!");
+		}
+
+		return ennemy.getPv() <= 0;
+
+	}
+
+	@Override
+	public boolean do_m_dmg(Monster ennemy) {
+
+		Integer randDmg = randomNumber(1, 4);
+		Integer dmg = this.mag - ennemy.getmDef() + randDmg;
+
+		ennemy.setPv(ennemy.getPv() - dmg);
+
+		if (dmg <= 0) {
+			System.out.println("Evité!");
+		} else {
+			System.out.println(dmg + " dégats!");
+		}
+
+		return ennemy.getPv() <= 0;
+
+	}
 
 	public MainDroite getMainDroite() {
 		return mainDroite;
@@ -117,7 +168,77 @@ public class Player extends Character {
 	public void setTete(Tete tete) {
 		this.tete = tete;
 	}
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getPvMax() {
+		return pvMax;
+	}
+
+	public void setPvMax(Integer pvMax) {
+		this.pvMax = pvMax;
+	}
+
+	public Integer getPv() {
+		return pv;
+	}
+
+	public void setPv(Integer pv) {
+		this.pv = pv;
+	}
+
+	public Integer getsTr() {
+		return sTr;
+	}
+
+	public void setsTr(Integer sTr) {
+		this.sTr = sTr;
+	}
+
+	public Integer getMag() {
+		return mag;
+	}
+
+	public void setMag(Integer mag) {
+		this.mag = mag;
+	}
+
+	public Integer getpDef() {
+		return pDef;
+	}
+
+	public void setpDef(Integer pDef) {
+		this.pDef = pDef;
+	}
+
+	public Integer getmDef() {
+		return mDef;
+	}
+
+	public void setmDef(Integer mDef) {
+		this.mDef = mDef;
+	}
+
+	public Integer getCon() {
+		return con;
+	}
+
+	public void setCon(Integer con) {
+		this.con = con;
+	}
+
+	public Inventaire getInventaire() {
+		return inventaire;
+	}
+
+	public void setInventaire(Inventaire inventaire) {
+		this.inventaire = inventaire;
+	}
 
 }

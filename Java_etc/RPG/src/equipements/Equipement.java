@@ -4,7 +4,7 @@ import java.util.List;
 
 import persos.Player;
 
-public interface Equipement {
+public interface Equipement extends Carriable{
 
 	public void afficher();
 	public Equipement ameliorer();

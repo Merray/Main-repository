@@ -1,8 +1,8 @@
 package equipements;
 
-public enum Materiaux {
+public enum Materiaux implements Carriable{
 
-	TISSU1("Tissu",1), TISSU2("Tissu",2), CUIR1("Cuir", 1), CUIR2("Cuir", 2);
+	TISSU1("Tissu",1), TISSU2("Tissu",2), CUIR1("Cuir", 1), CUIR2("Cuir", 2), FER1("Fer", 1), FER2("Fer", 2);
 	
 	private String nom;
 	private Integer quantite;

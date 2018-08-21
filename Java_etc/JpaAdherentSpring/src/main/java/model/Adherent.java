@@ -18,6 +18,9 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name = "adherent")
 @SequenceGenerator(name = "seqAdherent", sequenceName = "seq_adherent", initialValue = 50, allocationSize = 1)
@@ -34,10 +37,14 @@ public class Adherent {
 	@Column(name = "id_adherent")
 	private Integer id;
 	@Column(name = "civilite", length = 5)
-	private String civilite;
-	@Column(name = "first_name", nullable = false, length = 150)
+	private Civilite civilite;
+	@Column(name = "first_name", length = 150)
+	@NotEmpty
+	@Length(min= 3, max = 150)
 	private String prenom;
-	@Column(name = "last_name", nullable = true, length = 150)
+	@Column(name = "last_name", length = 150)
+	@NotEmpty
+	@Length(min= 3, max = 150)
 	private String nom;
 	@Embedded
 	@AttributeOverrides({ @AttributeOverride(name = "rue", column = @Column(name = "street_adherent", length = 255)),
@@ -53,7 +60,7 @@ public class Adherent {
 
 	}
 
-	public Adherent(String civilite, String nom, String prenom) {
+	public Adherent(Civilite civilite, String nom, String prenom) {
 		this.civilite = civilite;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -64,7 +71,7 @@ public class Adherent {
 	
 	
 
-	public Adherent(String civilite, String prenom, String nom, Adresse adresse, Set<Article> articles) {
+	public Adherent(Civilite civilite, String prenom, String nom, Adresse adresse, Set<Article> articles) {
 		super();
 		this.civilite = civilite;
 		this.prenom = prenom;
@@ -81,11 +88,11 @@ public class Adherent {
 		this.id = id;
 	}
 
-	public String getCivilite() {
+	public Civilite getCivilite() {
 		return civilite;
 	}
 
-	public void setCivilite(String civilite) {
+	public void setCivilite(Civilite civilite) {
 		this.civilite = civilite;
 	}
 

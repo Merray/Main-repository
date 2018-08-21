@@ -30,14 +30,15 @@ public class App {
 //		adherentRepository.save(mar);
 		
 		
+		Adherent a = new Adherent(Civilite.MONSIEUR, "CARRILLO", "Jimmy");
+		Adherent a2 = new Adherent(Civilite.MADAME, "BOUTINEAU", "Marine");
 		
-		
-		adherentRepository.save(new Adherent(Civilite.MADAME.getCivilite(), "BOUTINEAU", "Marine"));
+		adherentRepository.save(a);
+		adherentRepository.save(a2);
 		
 //		realisateurRepository.save(new Realisateur("Lucas", "Georges"));
 		
 		
-		System.out.println(adherentRepository.findCustomByCity("Paris"));
 		
 	}
 
