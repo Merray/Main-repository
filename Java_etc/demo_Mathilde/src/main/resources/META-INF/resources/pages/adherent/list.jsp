@@ -5,6 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,14 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Liste des Adhérents</h1>
+		</div>
+		<div>
+			<sec:authorize access="hasRole('USER')">
+				<c:if test="${pageContext.request.userPrincipal.name != null }">
+					logged as:${pageContext.request.userPrincipal.name}
+					<a href="">Logout</a>
+				</c:if>
+			</sec:authorize>
 		</div>
 		<table class="table table-striped">
 			<tr>
