@@ -1,8 +1,0 @@
-!SESSION 2018-08-01 10:07:54.261 -----------------------------------------------
-eclipse.buildId=4.8.0.I20180611-0500
-java.version=1.8.0_171
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=fr_FR
-Framework arguments:  -product org.eclipse.epp.package.jee.product
-Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
-

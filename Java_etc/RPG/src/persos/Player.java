@@ -1,5 +1,7 @@
 package persos;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,6 +13,8 @@ import equipements.Torse;
 
 public class Player implements Attacker<Monster> {
 
+	private Integer lvl;
+	private Integer xpLeft;
 	private String name;
 	private Integer pvMax, pv, sTr, mag, pDef, mDef, con;
 	private MainDroite mainDroite;
@@ -20,10 +24,24 @@ public class Player implements Attacker<Monster> {
 	private Tete tete;
 	private Inventaire inventaire;
 
+	public static Map<Integer, Integer> xpMap = new HashMap<Integer, Integer>();
+
+	static {
+
+		for (int i = 1; i <= 100; i++) {
+
+			xpMap.put(i, 2 * i + 3);
+		}
+
+	}
+
 	public Player() {
 	}
 
-	public Player(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con) {
+	public Player(Integer lvl, Integer xpLeft, String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef,
+			Integer mDef, Integer con) {
+		this.lvl = lvl;
+		this.xpLeft = xpLeft;
 		this.name = name;
 		this.pvMax = pvMax;
 		pv = pvMax;
@@ -56,8 +74,22 @@ public class Player implements Attacker<Monster> {
 	// Affiche les stats
 	@Override
 	public String toString() {
-		return "\n\n---------- " + name + " ----------\n\n pvMax : " + pvMax + "\t pv: " + pv + "/" + pvMax + "\n sTr: "
-				+ sTr + "\t\t mag: " + mag + "\n pDef: " + pDef + "\t mDef: " + mDef + "\n con: " + con;
+		return "\n\n---------- " + name + " ----------\n\n Lvl: " + lvl + "\t\t xpLeft: " + xpLeft + "\n pvMax: " + pvMax
+				+ "\t pv: " + pv + "/" + pvMax + "\n sTr: " + sTr + "\t\t mag: " + mag + "\n pDef: " + pDef
+				+ "\t mDef: " + mDef + "\n con: " + con;
+	}
+
+	public void lvlUp(Monster m) {
+		while (m.getXpGiven() > 0) {
+			this.xpLeft -= 1;
+			m.setXpGiven(m.getXpGiven() - 1);
+			if (xpLeft == 0) {
+				lvl += 1;
+				xpLeft = xpMap.get(lvl);
+				System.out.println("\n" + name + " vient de passer niveau " + lvl + " !");
+				// AJOUTER LE UP DES STATS
+			}
+		}
 	}
 
 	public static Player playerGenerator() {
@@ -76,7 +108,7 @@ public class Player implements Attacker<Monster> {
 		mDef = 2 + randomNumber(-1, 1);
 		con = 3 + randomNumber(-1, 1);
 
-		Player player = new Player(name, pvMax, sTr, mag, pDef, mDef, con);
+		Player player = new Player(1, xpMap.get(1), name, pvMax, sTr, mag, pDef, mDef, con);
 
 		sc.close();
 		return player;
@@ -239,6 +271,30 @@ public class Player implements Attacker<Monster> {
 
 	public void setInventaire(Inventaire inventaire) {
 		this.inventaire = inventaire;
+	}
+
+	public Integer getLvl() {
+		return lvl;
+	}
+
+	public void setLvl(Integer lvl) {
+		this.lvl = lvl;
+	}
+
+	public Integer getXpLeft() {
+		return xpLeft;
+	}
+
+	public void setXpLeft(Integer xpLeft) {
+		this.xpLeft = xpLeft;
+	}
+
+	public Map<Integer, Integer> getXpMap() {
+		return xpMap;
+	}
+
+	public void setXpMap(Map<Integer, Integer> xpMap) {
+		this.xpMap = xpMap;
 	}
 
 }

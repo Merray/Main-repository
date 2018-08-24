@@ -4,14 +4,15 @@ import equipements.*;
 
 public enum Monster implements Attacker<Player> {
 
-	CHTULHU("Chtulhu", 100, 15, 12, 7, 12, 5, MainDroite.EPEE_ROUILLEE), GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1, Materiaux.CUIR1),
-	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1, Torse.GILET), GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3,0,2,0,2, Materiaux.FER1);
+	CHTULHU("Chtulhu", 100, 15, 12, 7, 12, 5, MainDroite.EPEE_ROUILLEE, 500), GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1, Materiaux.CUIR1, 4),
+	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1, Torse.GILET, 5), GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3,0,2,0,2, Materiaux.FER1, 6);
 
 	private String name;
 	private Integer pvMax, pv, sTr, mag, pDef, mDef, con;
 	private Carriable loot;
+	private Integer xpGiven;
 
-	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con, Carriable loot) {
+	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con, Carriable loot, Integer xpGiven) {
 
 		this.name = name;
 		this.pvMax = pvMax;
@@ -22,6 +23,7 @@ public enum Monster implements Attacker<Player> {
 		this.mDef = mDef;
 		this.con = con;
 		this.loot = loot;
+		this.xpGiven = xpGiven;
 		
 	}
 	
@@ -152,6 +154,15 @@ public enum Monster implements Attacker<Player> {
 	public void setLoot(Carriable loot) {
 		this.loot = loot;
 	}
+
+	public Integer getXpGiven() {
+		return xpGiven;
+	}
+
+	public void setXpGiven(Integer xpGiven) {
+		this.xpGiven = xpGiven;
+	}
+	
 	
 	
 
