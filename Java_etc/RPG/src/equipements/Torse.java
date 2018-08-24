@@ -5,19 +5,40 @@ import java.util.List;
 import persos.Player;
 
 public enum Torse implements Equipement {
-	
-	GILET("Gilet", 1,1,0), ARMURE_DE_CUIR("Armure de cuir", 2,0,1);
-	
+
+	GILET("Gilet", 1, 1, 0, 70, 1), ARMURE_DE_CUIR("Armure de cuir", 2, 0, 1, 25, 1);
+
 	private String nom;
 	private Integer modifPDef;
 	private Integer modifMDef;
 	private Integer modifCon;
+	private Integer tauxDrop;
+	private Integer quantite;
 
-	private Torse(String nom, Integer modifPDef, Integer modifMDef, Integer modifCon) {
+	private Torse(String nom, Integer modifPDef, Integer modifMDef, Integer modifCon, Integer tauxDrop,
+			Integer quantite) {
 		this.nom = nom;
 		this.modifPDef = modifPDef;
 		this.modifMDef = modifMDef;
 		this.modifCon = modifCon;
+		this.tauxDrop = tauxDrop;
+		this.quantite = quantite;
+	}
+
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+
+	public Integer getTauxDrop() {
+		return tauxDrop;
+	}
+
+	public void setTauxDrop(Integer tauxDrop) {
+		this.tauxDrop = tauxDrop;
 	}
 
 	public String getNom() {
@@ -100,4 +121,15 @@ public enum Torse implements Equipement {
 		player.setCon(player.getCon() - this.modifCon);
 	}
 
+	@Override
+	public int compareTo(Carriable objet) {
+		if (this.getNom().compareTo(objet.getNom()) < 0) {
+			return -1;
+		} else if (this.getNom().compareTo(objet.getNom()) > 0) {
+			return 1;
+		} else {
+
+			return 0;
+		}
+	}
 }

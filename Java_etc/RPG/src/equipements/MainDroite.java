@@ -6,15 +6,35 @@ import persos.Player;
 
 public enum MainDroite implements Equipement {
 
-	EPEE_ROUILLEE("Epée rouillée", 1,0), EPEE_EN_BON_ETAT("Epée en bon état", 3,0);
+	EPEE_ROUILLEE("Epée rouillée", 1, 0, 65, 1), EPEE_EN_BON_ETAT("Epée en bon état", 3, 0, 25, 1);
 	private String nom;
 	private Integer modifFor;
 	private Integer modifMag;
+	private Integer tauxDrop;
+	private Integer quantite;
 
-	private MainDroite(String nom, Integer modifFor, Integer modifMag) {
+	private MainDroite(String nom, Integer modifFor, Integer modifMag, Integer tauxDrop, Integer quantite) {
 		this.nom = nom;
 		this.modifFor = modifFor;
 		this.modifMag = modifMag;
+		this.tauxDrop = tauxDrop;
+		this.quantite = quantite;
+	}
+
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+
+	public Integer getTauxDrop() {
+		return tauxDrop;
+	}
+
+	public void setTauxDrop(Integer tauxDrop) {
+		this.tauxDrop = tauxDrop;
 	}
 
 	public String getNom() {
@@ -86,6 +106,18 @@ public enum MainDroite implements Equipement {
 		player.setsTr(player.getsTr() - this.modifFor);
 		player.setMag(player.getMag() - this.modifMag);
 
+	}
+
+	@Override
+	public int compareTo(Carriable objet) {
+		if (this.getNom().compareTo(objet.getNom()) < 0) {
+			return -1;
+		} else if (this.getNom().compareTo(objet.getNom()) > 0) {
+			return 1;
+		} else {
+
+			return 0;
+		}
 	}
 
 }

@@ -6,16 +6,39 @@ import persos.Player;
 
 public enum Jambes implements Equipement {
 
-	CALECON("Caleçon", 0,1), PANTALON_EN_CUIR("Pantalon en cuir", 1,1);
-	
+	CALECON("Caleçon", 0, 1, 90, 1), PANTALON_EN_CUIR("Pantalon en cuir", 1, 1, 65, 1);
+
 	private String nom;
 	private Integer modifPDef;
 	private Integer modifCon;
+	private Integer tauxDrop;
+	private Integer quantite;
 
-	private Jambes(String nom, Integer modifPDef, Integer modifCon) {
+	private Jambes(String nom, Integer modifPDef, Integer modifCon, Integer tauxDrop, Integer quantite) {
 		this.nom = nom;
 		this.modifPDef = modifPDef;
 		this.modifCon = modifCon;
+		this.tauxDrop = tauxDrop;
+		this.quantite = quantite;
+	}
+
+	
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+
+
+	public Integer getTauxDrop() {
+		return tauxDrop;
+	}
+
+	public void setTauxDrop(Integer tauxDrop) {
+		this.tauxDrop = tauxDrop;
 	}
 
 	public String getNom() {
@@ -41,8 +64,6 @@ public enum Jambes implements Equipement {
 	public void setModifCon(Integer modifCon) {
 		this.modifCon = modifCon;
 	}
-	
-	
 
 	@Override
 	public void afficher() {
@@ -89,6 +110,18 @@ public enum Jambes implements Equipement {
 		player.setpDef(player.getpDef() - this.modifPDef);
 		player.setCon(player.getCon() - this.modifCon);
 
+	}
+
+	@Override
+	public int compareTo(Carriable objet) {
+		if (this.getNom().compareTo(objet.getNom()) < 0) {
+			return -1;
+		} else if (this.getNom().compareTo(objet.getNom()) > 0) {
+			return 1;
+		} else {
+
+			return 0;
+		}
 	}
 
 }

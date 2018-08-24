@@ -6,20 +6,41 @@ import persos.Player;
 
 public enum MainGauche implements Equipement {
 
-	BOUCLIER_EN_BOIS("Bouclier en bois",0,0,1,0), BOUCLIER_EN_FER("Bouclier en fer",1,0,1,0);
-	
+	BOUCLIER_EN_BOIS("Bouclier en bois", 0, 0, 1, 0, 50, 1), BOUCLIER_EN_FER("Bouclier en fer", 1, 0, 1, 0, 15, 1);
+
 	private String nom;
 	private Integer modifFor;
 	private Integer modifMag;
 	private Integer modifPDef;
 	private Integer modifMDef;
+	private Integer tauxDrop;
+	private Integer quantite;
 
-	private MainGauche(String nom, Integer modifFor, Integer modifMag, Integer modifPDef, Integer modifMDef) {
+	private MainGauche(String nom, Integer modifFor, Integer modifMag, Integer modifPDef, Integer modifMDef,
+			Integer tauxDrop, Integer quantite) {
 		this.nom = nom;
 		this.modifFor = modifFor;
 		this.modifMag = modifMag;
 		this.modifPDef = modifPDef;
 		this.modifMDef = modifMDef;
+		this.tauxDrop = tauxDrop;
+		this.quantite = quantite;
+	}
+
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+
+	public Integer getTauxDrop() {
+		return tauxDrop;
+	}
+
+	public void setTauxDrop(Integer tauxDrop) {
+		this.tauxDrop = tauxDrop;
 	}
 
 	public String getNom() {
@@ -111,6 +132,18 @@ public enum MainGauche implements Equipement {
 		player.setpDef(player.getpDef() - this.modifPDef);
 		player.setmDef(player.getmDef() - this.modifMDef);
 
+	}
+
+	@Override
+	public int compareTo(Carriable objet) {
+		if (this.getNom().compareTo(objet.getNom()) < 0) {
+			return -1;
+		} else if (this.getNom().compareTo(objet.getNom()) > 0) {
+			return 1;
+		} else {
+
+			return 0;
+		}
 	}
 
 }

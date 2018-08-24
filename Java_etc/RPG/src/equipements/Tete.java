@@ -5,19 +5,39 @@ import java.util.List;
 import persos.Player;
 
 public enum Tete implements Equipement {
-	
-	CASQUE_ROUILLE("Casque rouillé", 0,0,1), CASQUE_DE_FER("Casque de fer", 1,0,2);
+
+	CASQUE_ROUILLE("Casque rouillé", 0, 0, 1, 15, 1), CASQUE_DE_FER("Casque de fer", 1, 0, 2, 10, 1);
 
 	private String nom;
 	private Integer modifFor;
 	private Integer modifMag;
 	private Integer modifCon;
+	private Integer tauxDrop;
+	private Integer quantite;
 
-	private Tete(String nom, Integer modifFor, Integer modifMag, Integer modifCon) {
+	private Tete(String nom, Integer modifFor, Integer modifMag, Integer modifCon, Integer tauxDrop, Integer quantite) {
 		this.nom = nom;
 		this.modifFor = modifFor;
 		this.modifMag = modifMag;
 		this.modifCon = modifCon;
+		this.tauxDrop = tauxDrop;
+		this.quantite = quantite;
+	}
+
+	public Integer getQuantite() {
+		return quantite;
+	}
+
+	public void setQuantite(Integer quantite) {
+		this.quantite = quantite;
+	}
+
+	public Integer getTauxDrop() {
+		return tauxDrop;
+	}
+
+	public void setTauxDrop(Integer tauxDrop) {
+		this.tauxDrop = tauxDrop;
 	}
 
 	public String getNom() {
@@ -98,6 +118,18 @@ public enum Tete implements Equipement {
 		player.setsTr(player.getsTr() - this.modifFor);
 		player.setMag(player.getMag() - this.modifMag);
 		player.setCon(player.getCon() - this.modifCon);
+	}
+
+	@Override
+	public int compareTo(Carriable objet) {
+		if (this.getNom().compareTo(objet.getNom()) < 0) {
+			return -1;
+		} else if (this.getNom().compareTo(objet.getNom()) > 0) {
+			return 1;
+		} else {
+
+			return 0;
+		}
 	}
 
 }

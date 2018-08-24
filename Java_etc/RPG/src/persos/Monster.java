@@ -1,14 +1,17 @@
 package persos;
 
+import equipements.*;
+
 public enum Monster implements Attacker<Player> {
 
-	CHTULHU("Chtulhu", 100, 15, 12, 7, 12, 5), GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1),
-	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1), GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3,0,2,0,2);
+	CHTULHU("Chtulhu", 100, 15, 12, 7, 12, 5, MainDroite.EPEE_ROUILLEE), GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1, Materiaux.CUIR1),
+	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1, Torse.GILET), GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3,0,2,0,2, Materiaux.FER1);
 
 	private String name;
 	private Integer pvMax, pv, sTr, mag, pDef, mDef, con;
+	private Carriable loot;
 
-	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con) {
+	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con, Carriable loot) {
 
 		this.name = name;
 		this.pvMax = pvMax;
@@ -18,6 +21,8 @@ public enum Monster implements Attacker<Player> {
 		this.pDef = pDef;
 		this.mDef = mDef;
 		this.con = con;
+		this.loot = loot;
+		
 	}
 	
 	// Affiche les stats
@@ -27,6 +32,19 @@ public enum Monster implements Attacker<Player> {
 				+ sTr + "\t\t mag: " + mag + "\n pDef: " + pDef + "\t mDef: " + mDef + "\n con: " + con;
 	}
 
+	public void dropLoot(Player p) {
+		
+		
+		if (Player.randomNumber(1, 100) <= loot.getTauxDrop()) {
+			
+			System.out.println("En fouillant le corps du " +name.toLowerCase()+ ", vous trouvez: "+ loot.getNom());
+			p.getInventaire().ajouter(loot);
+			
+		}
+		
+			
+	}
+	
 	@Override
 	public boolean do_p_dmg(Player ennemy) {
 
@@ -126,5 +144,15 @@ public enum Monster implements Attacker<Player> {
 	public void setCon(Integer con) {
 		this.con = con;
 	}
+
+	public Carriable getLoot() {
+		return loot;
+	}
+
+	public void setLoot(Carriable loot) {
+		this.loot = loot;
+	}
+	
+	
 
 }
