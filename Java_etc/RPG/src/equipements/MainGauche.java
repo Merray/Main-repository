@@ -6,7 +6,9 @@ import persos.Player;
 
 public enum MainGauche implements Equipement {
 
-	BOUCLIER_EN_BOIS("Bouclier en bois", 0, 0, 1, 0, 50, 1), BOUCLIER_EN_FER("Bouclier en fer", 1, 0, 1, 0, 15, 1);
+	BOUCLIER_EN_BOIS("Bouclier en bois", 0, 0, 1, 0, 50, 1), BOUCLIER_EN_FER("Bouclier en fer", 1, 0, 1, 0, 15, 1),
+	CHAPEAU_DE_MAGICIEN_CHARLATANT("Chapeau de magicien charlatant", 0, 1, 0, 2, 45, 1),
+	CHAPEAU_DE_MAGICIEN_BADASS("Chapeau de magicien badass", 0, 5, 0, 2, 45, 1);
 
 	private String nom;
 	private Integer modifFor;

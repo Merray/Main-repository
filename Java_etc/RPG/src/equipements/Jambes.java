@@ -6,7 +6,9 @@ import persos.Player;
 
 public enum Jambes implements Equipement {
 
-	CALECON("Caleçon", 0, 1, 90, 1), PANTALON_EN_CUIR("Pantalon en cuir", 1, 1, 65, 1);
+	CALECON("Caleçon", 0, 1, 90, 1), PANTALON_EN_CUIR("Pantalon en cuir", 1, 1, 65, 1),
+	PANTALON_COMBI_CONTRE_LE_FROID("Pantalon combi contre le froid", 1, 0, 55, 1),
+	CULOTTE_ELEGANTE("Culotte élégante", 0, 0, 85, 1);
 
 	private String nom;
 	private Integer modifPDef;
@@ -22,16 +24,13 @@ public enum Jambes implements Equipement {
 		this.quantite = quantite;
 	}
 
-	
 	public Integer getQuantite() {
 		return quantite;
 	}
 
-
 	public void setQuantite(Integer quantite) {
 		this.quantite = quantite;
 	}
-
 
 	public Integer getTauxDrop() {
 		return tauxDrop;

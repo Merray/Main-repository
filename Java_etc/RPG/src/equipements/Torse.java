@@ -6,7 +6,8 @@ import persos.Player;
 
 public enum Torse implements Equipement {
 
-	GILET("Gilet", 1, 1, 0, 70, 1), ARMURE_DE_CUIR("Armure de cuir", 2, 0, 1, 25, 1);
+	GILET("Gilet", 1, 1, 0, 70, 1), ARMURE_DE_CUIR("Armure de cuir", 2, 0, 1, 25, 1),
+	ROBE_DE_CHAMBRE("Robe de chambre", 0, 0, 0, 75, 1), DECOLLETE_SEXY("Décolleté sexy", 5, 2, 5, 10, 1);
 
 	private String nom;
 	private Integer modifPDef;

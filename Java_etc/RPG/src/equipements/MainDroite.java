@@ -6,7 +6,9 @@ import persos.Player;
 
 public enum MainDroite implements Equipement {
 
-	EPEE_ROUILLEE("Epée rouillée", 1, 0, 65, 1), EPEE_EN_BON_ETAT("Epée en bon état", 3, 0, 25, 1);
+	EPEE_ROUILLEE("Epée rouillée", 1, 0, 65, 1), EPEE_EN_BON_ETAT("Epée en bon état", 3, 0, 25, 1),
+	MJOLNIR("Mjolnir", 5, 0, 25, 1), BAGUETTE_BAS_DE_GAMME("Baguette bas de gamme", 0, 1, 50, 1),
+	BAGUETTE_ROI_MAGE("Baguette Roi Mage", 0, 8, 10, 1);
 	private String nom;
 	private Integer modifFor;
 	private Integer modifMag;

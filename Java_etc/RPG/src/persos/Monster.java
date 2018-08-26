@@ -4,15 +4,19 @@ import equipements.*;
 
 public enum Monster implements Attacker<Player> {
 
-	CHTULHU("Chtulhu", 100, 15, 12, 7, 12, 5, MainDroite.EPEE_ROUILLEE, 500), GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1, Materiaux.CUIR1, 4),
-	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1, Torse.GILET, 5), GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3,0,2,0,2, Materiaux.FER1, 6);
+	CHTULHU("Chtulhu", 100, 30, 27, 12, 15, 100, MainDroite.EPEE_ROUILLEE, 500),
+	GOBELIN("Gobelin", 10, 2, 0, 0, 0, 1, Materiaux.CUIR1, 4),
+	GOBELIN_MAGE("Gobelin mage", 8, 0, 2, 0, 0, 1, Torse.GILET, 5),
+	GOBELIN_CUIRASSE("Gobelin cuirassé", 12, 3, 0, 2, 0, 2, Materiaux.FER1, 6),
+	CRASH("Crash", 48, 13, 3, 10, 10, 10, MainDroite.MJOLNIR, 200);
 
 	private String name;
 	private Integer pvMax, pv, sTr, mag, pDef, mDef, con;
 	private Carriable loot;
 	private Integer xpGiven;
 
-	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con, Carriable loot, Integer xpGiven) {
+	private Monster(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con,
+			Carriable loot, Integer xpGiven) {
 
 		this.name = name;
 		this.pvMax = pvMax;
@@ -24,29 +28,28 @@ public enum Monster implements Attacker<Player> {
 		this.con = con;
 		this.loot = loot;
 		this.xpGiven = xpGiven;
-		
+
 	}
-	
+
 	// Affiche les stats
 	@Override
 	public String toString() {
-		return "\n\n---------- " + name + " ----------\n\n pvMax : " + pvMax + "\t pv: " + pv + "/" + pvMax + "\n sTr: "
-				+ sTr + "\t\t mag: " + mag + "\n pDef: " + pDef + "\t mDef: " + mDef + "\n con: " + con;
+		return "\n\n------------- " + name + " -------------\n\n pvMax : " + pvMax + "\t\t pv: " + pv + "/" + pvMax + "\n sTr: "
+				+ sTr + "\t\t mag: " + mag + "\n pDef: " + pDef + "\t\t mDef: " + mDef + "\n con: " + con;
 	}
 
 	public void dropLoot(Player p) {
-		
-		
+
 		if (Player.randomNumber(1, 100) <= loot.getTauxDrop()) {
-			
-			System.out.println("En fouillant le corps du " +name.toLowerCase()+ ", vous trouvez: "+ loot.getNom());
+
+			System.out.println(
+					"\nEn fouillant le corps du " + name.toLowerCase() + ", " + p.getName() + " trouve: " + loot.getNom());
 			p.getInventaire().ajouter(loot);
-			
+
 		}
-		
-			
+
 	}
-	
+
 	@Override
 	public boolean do_p_dmg(Player ennemy) {
 
@@ -56,9 +59,9 @@ public enum Monster implements Attacker<Player> {
 		ennemy.setPv(ennemy.getPv() - dmg);
 
 		if (dmg <= 0) {
-			System.out.println("\n"+this.name +" a évité l'attaque de " + ennemy.getName());
+			System.out.println("\n" + ennemy.getName() + " a évité l'attaque de " + this.name);
 		} else {
-			System.out.println(dmg + " dégats!");
+			System.out.println("\n" + this.name + " a infligé " + dmg + " dégats à " + ennemy.getName() + " !");
 		}
 
 		return ennemy.getPv() <= 0;
@@ -74,9 +77,9 @@ public enum Monster implements Attacker<Player> {
 		ennemy.setPv(ennemy.getPv() - dmg);
 
 		if (dmg <= 0) {
-			System.out.println("Evité!");
+			System.out.println("\n" + ennemy.getName() + " a évité le sort de " + this.name);
 		} else {
-			System.out.println(dmg + " dégats!");
+			System.out.println("\n" + this.name + " a infligé " + dmg + " dégats à " + ennemy.getName() + " !");
 		}
 
 		return ennemy.getPv() <= 0;
@@ -162,8 +165,5 @@ public enum Monster implements Attacker<Player> {
 	public void setXpGiven(Integer xpGiven) {
 		this.xpGiven = xpGiven;
 	}
-	
-	
-	
 
 }

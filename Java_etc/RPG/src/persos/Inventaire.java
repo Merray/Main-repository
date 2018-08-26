@@ -15,7 +15,7 @@ import equipements.Materiaux;
 public enum Inventaire implements Carriable {
 
 	RIEN("Rien", 4, 0), PETITE_POCHE("Petite poche", 12, 70), BALUCHON("Baluchon", 16, 25),
-	SAC_DE_VOYAGE("Sac de voyage", 24, 15), SAC_SANS_FOND("Sac sans fond", 999, 5);
+	SAC_DE_VOYAGE("Sac de voyage", 24, 15), MARMITE("Marmite", 20, 30), SAC_SANS_FOND("Sac sans fond", 999, 5);
 
 	private String nom;
 	private Integer size;

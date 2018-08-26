@@ -74,9 +74,9 @@ public class Player implements Attacker<Monster> {
 	// Affiche les stats
 	@Override
 	public String toString() {
-		return "\n\n---------- " + name + " ----------\n\n Lvl: " + lvl + "\t\t xpLeft: " + xpLeft + "\n pvMax: " + pvMax
-				+ "\t pv: " + pv + "/" + pvMax + "\n sTr: " + sTr + "\t\t mag: " + mag + "\n pDef: " + pDef
-				+ "\t mDef: " + mDef + "\n con: " + con;
+		return "\n\n------------- " + name + " -------------\n\n Lvl: " + lvl + "\t\t xpLeft: " + xpLeft + "\n pvMax: " + pvMax
+				+ "\t\t pv: " + pv + "/" + pvMax + "\n sTr: " + sTr + "\t\t\t mag: " + mag + "\n pDef: " + pDef
+				+ "\t\t mDef: " + mDef + "\n con: " + con;
 	}
 
 	public void lvlUp(Monster m) {
@@ -87,12 +87,16 @@ public class Player implements Attacker<Monster> {
 				lvl += 1;
 				xpLeft = xpMap.get(lvl);
 				System.out.println("\n" + name + " vient de passer niveau " + lvl + " !");
-				// AJOUTER LE UP DES STATS
+				this.boostStats();
 			}
 		}
 	}
 
-	public static Player playerGenerator() {
+	public void boostStats() {
+		// Gérer le up de stats par classe
+	}
+	
+	public static Player playerGenerator(Integer lvl) {
 
 		String name;
 		Integer pvMax, sTr, mag, pDef, mDef, con;
@@ -108,7 +112,7 @@ public class Player implements Attacker<Monster> {
 		mDef = 2 + randomNumber(-1, 1);
 		con = 3 + randomNumber(-1, 1);
 
-		Player player = new Player(1, xpMap.get(1), name, pvMax, sTr, mag, pDef, mDef, con);
+		Player player = new Player(lvl, xpMap.get(lvl), name, pvMax, sTr, mag, pDef, mDef, con);
 
 		sc.close();
 		return player;
@@ -136,7 +140,7 @@ public class Player implements Attacker<Monster> {
 		if (dmg <= 0) {
 			System.out.println("\n" + ennemy.getName() + " a évité l'attaque de " + this.name);
 		} else {
-			System.out.println("\n" + dmg + " dégats!");
+			System.out.println("\n"+ this.name+ " a infligé " + dmg + " dégats à "+ ennemy.getName()+ " !");
 		}
 
 		return ennemy.getPv() <= 0;
@@ -152,9 +156,9 @@ public class Player implements Attacker<Monster> {
 		ennemy.setPv(ennemy.getPv() - dmg);
 
 		if (dmg <= 0) {
-			System.out.println("Evité!");
+			System.out.println("\n" + ennemy.getName() + " a évité le sort de " + this.name);
 		} else {
-			System.out.println(dmg + " dégats!");
+			System.out.println("\n"+ this.name+ " a infligé " + dmg + " dégats à "+ ennemy.getName()+ " !");
 		}
 
 		return ennemy.getPv() <= 0;
