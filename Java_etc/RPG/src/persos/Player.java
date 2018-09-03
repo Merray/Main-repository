@@ -13,6 +13,7 @@ import equipements.Torse;
 
 public class Player implements Attacker<Monster> {
 
+	private Job job;
 	private Integer lvl;
 	private Integer xpLeft;
 	private String name;
@@ -38,8 +39,9 @@ public class Player implements Attacker<Monster> {
 	public Player() {
 	}
 
-	public Player(Integer lvl, Integer xpLeft, String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef,
+	public Player(Job job, Integer lvl, Integer xpLeft, String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef,
 			Integer mDef, Integer con) {
+		this.job = job;
 		this.lvl = lvl;
 		this.xpLeft = xpLeft;
 		this.name = name;
@@ -53,29 +55,12 @@ public class Player implements Attacker<Monster> {
 		this.inventaire = Inventaire.RIEN;
 	}
 
-	public Player(String name, Integer pvMax, Integer sTr, Integer mag, Integer pDef, Integer mDef, Integer con,
-			MainDroite mainDroite, MainGauche mainGauche, Torse torse, Jambes jambes, Tete tete) {
-		this.name = name;
-		this.pvMax = pvMax;
-		pv = pvMax;
-		this.sTr = sTr;
-		this.mag = mag;
-		this.pDef = pDef;
-		this.mDef = mDef;
-		this.con = con;
-		this.mainDroite = mainDroite;
-		this.mainGauche = mainGauche;
-		this.torse = torse;
-		this.jambes = jambes;
-		this.tete = tete;
-		this.inventaire = Inventaire.RIEN;
-	}
 
 	// Affiche les stats
 	@Override
 	public String toString() {
 		return "\n\n------------- " + name + " -------------\n\n Lvl: " + lvl + "\t\t xpLeft: " + xpLeft + "\n pvMax: " + pvMax
-				+ "\t\t pv: " + pv + "/" + pvMax + "\n sTr: " + sTr + "\t\t\t mag: " + mag + "\n pDef: " + pDef
+				+ "\t\t pv: " + pv + "/" + pvMax + "\n sTr: " + sTr + "\t\t mag: " + mag + "\n pDef: " + pDef
 				+ "\t\t mDef: " + mDef + "\n con: " + con;
 	}
 
@@ -87,16 +72,13 @@ public class Player implements Attacker<Monster> {
 				lvl += 1;
 				xpLeft = xpMap.get(lvl);
 				System.out.println("\n" + name + " vient de passer niveau " + lvl + " !");
-				this.boostStats();
+				this.getJob().boostStats(this);
 			}
 		}
 	}
 
-	public void boostStats() {
-		// Gérer le up de stats par classe
-	}
 	
-	public static Player playerGenerator(Integer lvl) {
+	public static Player playerGenerator(Integer lvl, Job job) {
 
 		String name;
 		Integer pvMax, sTr, mag, pDef, mDef, con;
@@ -105,14 +87,14 @@ public class Player implements Attacker<Monster> {
 		System.out.println("Nom du personnage ?");
 		name = sc.nextLine();
 
-		pvMax = 10 + randomNumber(-3, 3);
-		sTr = 5 + randomNumber(-1, 1);
-		mag = 3 + randomNumber(-1, 1);
-		pDef = 2 + randomNumber(-1, 1);
-		mDef = 2 + randomNumber(-1, 1);
-		con = 3 + randomNumber(-1, 1);
+		pvMax = job.getBasePv() + randomNumber(-3, 3);
+		sTr = job.getBaseFor() + randomNumber(-1, 1);
+		mag = job.getBaseMag() + randomNumber(-1, 1);
+		pDef = job.getBasePDef() + randomNumber(-1, 1);
+		mDef = job.getBaseMDef() + randomNumber(-1, 1);
+		con = job.getBaseCon() + randomNumber(-1, 1);
 
-		Player player = new Player(lvl, xpMap.get(lvl), name, pvMax, sTr, mag, pDef, mDef, con);
+		Player player = new Player(job ,lvl, xpMap.get(lvl), name, pvMax, sTr, mag, pDef, mDef, con);
 
 		sc.close();
 		return player;
@@ -167,6 +149,14 @@ public class Player implements Attacker<Monster> {
 
 	public MainDroite getMainDroite() {
 		return mainDroite;
+	}
+
+	public Job getJob() {
+		return job;
+	}
+
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
 	public void setMainDroite(MainDroite mainDroite) {
