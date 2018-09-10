@@ -1,0 +1,13 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Nom | Prenom | CA</span>
+  </div>
+  <input type="text" aria-label="Prenom" class="form-control" [(ngModel)]="client.nom"/>
+  <input type="text" aria-label="Nom" class="form-control" [(ngModel)]="client.prenom"/>
+  <input type="text" aria-label="CA" class="form-control" [(ngModel)]="client.ca"/>
+
+</div>
+
+<div class="col-sm-4">
+  <button class="btn btn-success" id="ajout" (click)="ajout()">OK</button>
+</div>

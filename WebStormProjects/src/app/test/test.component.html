@@ -1,11 +1,23 @@
-
-
 <div>
   <input type="text" [(ngModel)]="prenom"/>
 
   Bonjour {{prenom}} !
-<div>
-  <button (click)="click()" >Click click !</button> {{nbClick}}
-</div>
+  <div>
+    <button (click)="click()">Click click !</button>
+    {{nbClick}}
+  </div>
 
 </div>
+
+<div>
+  Choisir une couleur :
+  <select [(ngModel)]="couleur">
+    <option value="#0066FF">Bleu</option>
+    <option value="#FF0000">Rouge</option>
+    <option value="#33CC33">Vert</option>
+    <option value="#FFFF00">Jaune</option>
+  </select>
+
+  <div [style.color]="couleur">Ce texte apparait dans la couleur choisie</div>
+</div>
+

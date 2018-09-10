@@ -6,7 +6,7 @@ import com.example.demo.videoclub.model.view.JsonViews;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-@DiscriminatorValue("blueray")
+@DiscriminatorValue("B")
 public class Blueray extends Article {
 	@Column(name = "troisd")
 	@JsonView(JsonViews.Common.class)

@@ -1,0 +1,15 @@
+
+<div>
+  Votre nom ?   <input type="text" [(ngModel)]="client.nom"/>
+  Votre prenom ?   <input type="text" [(ngModel)]="client.prenom"/>
+  Votre ca ?   <input type="number" [(ngModel)]="client.ca"/>
+
+</div>
+
+<div *ngIf="client.prenom != null && client.nom != null && client.ca != 0">Bonjour {{client.prenom}} {{client.nom}}, votre chiffre d'affaire est le : {{client.ca}}</div>
+
+<div app-asc-bold> Bonjour en gras. Si tu clique SURPRISE</div>
+
+<app-asc-bold-element prefix="Voici le nom :" [text]="client.nom"></app-asc-bold-element>
+
+<app-asc-tooltip asc-tooltip-titre="Tooltip">Voici un texte</app-asc-tooltip>

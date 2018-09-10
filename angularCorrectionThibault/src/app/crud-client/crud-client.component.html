@@ -1,0 +1,25 @@
+
+
+<table class="table">
+  <tr>
+    <th scope="col">Prenom</th>
+    <th scope="col">Nom</th>
+    <th scope="col">CA</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  <tr *ngFor="let c of list(), let i=index">
+    <td scope="row">{{c.prenom}}</td>
+    <td scope="row">{{c.nom}}</td>
+    <td  [style.color]="c.ca | clientCategoryPipe">{{c.ca | clientCategoryPipe:'string'}}{{c.ca |currency:'EUR' }}</td>
+    <td scope="row"><a class="btn btn-info" href="" [routerLink]="['/crud','client','edit',i]"
+                       routerLinkActived="active">edition</a></td>
+    <td scope="row">
+      <button class="btn btn-danger" (click)="delete(i)" [routerLink]="['/crud','client']"
+              routerLinkActived="active">supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<button [routerLink]="['/crud','client','edit']" routerLinkActive="active" class="btn btn-info" href="" >Ajouter
+</button>

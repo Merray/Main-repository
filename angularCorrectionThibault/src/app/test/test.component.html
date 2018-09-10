@@ -1,0 +1,27 @@
+<!--<p>
+  test works!
+</p>-->
+
+<!--
+  <input type="text" [(ngModel)]="prenom" [style.color]="selectColor('00ff00')"/>
+
+  bonjour {{prenom}}
+  <button (click)="click()" [style.color]="couleur"> clique ici stp stp stp stp stp stp</button>
+  {{nbClick}}-->
+
+
+<div>
+  <select [(ngModel)]="couleur">
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="blue">blue</option>
+    <option value="black">black</option>
+  </select>
+
+ <!-- {{couleur}}-->
+  <p><font color="{{couleur}}">
+    bonjour couleur invisible qui devient visible après un dur labeur laborieux
+  </font></p>
+</div>
+
+

@@ -1,0 +1,20 @@
+#ajout {
+  width: 70px;
+  height: 40px;
+  margin: 25px;
+}
+
+#filtre{
+
+  margin-bottom: 10px;
+}
+
+a {
+
+  color : white;
+}
+
+td, th {
+
+  text-align: center;
+}

@@ -9,6 +9,7 @@ export class TestComponent implements OnInit {
 
   private _prenom: string = 'Jimmy';
   private _nbClick: number = 0;
+  private _couleur: string;
 
   constructor() {
   }
@@ -30,6 +31,15 @@ export class TestComponent implements OnInit {
 
   public set nbClick(value: number) {
     this._nbClick = value;
+  }
+
+
+  public get couleur(): string {
+    return this._couleur;
+  }
+
+  public set couleur(value: string) {
+    this._couleur = value;
   }
 
   public click() {

@@ -1,0 +1,19 @@
+<h1>Liste des adhérents</h1>
+<table class="table">
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Nom</th>
+  </tr>
+  <tr *ngFor="let adherent of adherents">
+    <td scope="rol">{{adherent.id}}</td>
+    <td scope="rol">{{adherent.prenom}}</td>
+    <td scope="rol">{{adherent.nom}}</td>
+    <td><a href="" [routerLink]="['/adherent','edit',adherent.id]" routerLinkActive="active" class="btn btn-info">edition</a></td>
+    <td>
+      <button class="btn btn-danger" (click)="delete(adherent.id)">supprimer</button>
+    </td>
+  </tr>
+</table>
+<a href="" [routerLink]="['/adherent','create']" class="btn btn-info">ajouter</a>
+

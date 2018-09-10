@@ -1,0 +1,15 @@
+<form (ngSubmit)="save()">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input id="id" class="form-control" [(ngModel)]="adherent.id" readonly="readonly" name="id"/>
+  </div>
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <input id="prenom" class="form-control" [(ngModel)]="adherent.prenom" name="prenom"/>
+  </div>
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input id="nom" class="form-control" [(ngModel)]="adherent.nom" name="nom"/>
+  </div>
+  <button type="submit" class="btn btn-success">save</button>
+</form>

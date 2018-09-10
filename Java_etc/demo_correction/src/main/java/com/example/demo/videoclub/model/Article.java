@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 @SequenceGenerator(name = "seqArticle", sequenceName = "seq_article", initialValue = 1, allocationSize = 1)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = As.PROPERTY, property = "type")
-@JsonSubTypes({ @Type(value = Dvd.class, name = "dvd"), @Type(value = Blueray.class, name = "blu-ray") })
+@JsonSubTypes({ @Type(value = Dvd.class, name = "D"), @Type(value = Blueray.class, name = "B") })
 public abstract class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seqArticle")

@@ -1,0 +1,15 @@
+<div> ID:
+  <input [(ngModel)]="article.id" disabled="disabled"/><br/>
+</div>
+<div>NbDisques
+  <input type="number" [(ngModel)]="article.nbDisques"/><br/>
+</div>
+<div *ngIf="article.type === 'D'">BONUS:
+  <input type="checkbox" [(ngModel)]="article.bonus"/><br/>
+
+</div>
+<div *ngIf="article.type === 'B'">3D:
+  <input type="checkbox" [(ngModel)]="article.troisD"/><br/>
+</div>
+
+<button class="btn btn-danger" (click)="save(article.id)">save</button>

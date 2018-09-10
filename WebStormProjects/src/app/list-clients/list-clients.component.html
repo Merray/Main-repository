@@ -1,0 +1,52 @@
+<div class="container">
+  <div id="filtre">
+    Filtre : <input type="text" [(ngModel)]="filtre"/>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+    <th scope="col">Prenom</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Chiffre d'affaire</th>
+    <th scope="col">Catégorie</th>
+    <th scope="col">Options</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let client of filter()">
+      <td>{{ client.prenom }}</td>
+      <td>{{ client.nom }}</td>
+      <td>{{ client.ca }}</td>
+      <td [style.color]="client.ca | clientCategory">{{ client.ca | clientCategory:"string" }}</td>
+      <td><a class="btn btn-dark" href="" [routerLink]="['/client', client.ca]"
+             routerLinkActive="active">Détails</a>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="supr()">Supprimer</button>
+      </td>
+      <td>
+        <!-- il faut mettre le parametre i normalement mais comme j'ai pas fait comme lui... -->
+        <a href="" class="btn btn-primary" [routerLink]="['/editClient']">Modifier</a>
+      </td>
+    </tr>
+    </tbody>
+
+
+  </table>
+
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Nom | Prenom | CA</span>
+    </div>
+    <input type="text" aria-label="Prenom" class="form-control" [(ngModel)]="client.nom"/>
+    <input type="text" aria-label="Nom" class="form-control" [(ngModel)]="client.prenom"/>
+    <input type="text" aria-label="CA" class="form-control" [(ngModel)]="client.ca"/>
+
+  </div>
+
+  <div class="col-sm-4">
+    <button class="btn btn-success" id="ajout" (click)="ajout()">Ajout</button>
+  </div>
+
+</div>

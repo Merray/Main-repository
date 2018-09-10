@@ -1,0 +1,46 @@
+<div>
+  <div>
+    <input [(ngModel)]="client.prenom"><input [(ngModel)]="client.nom" > <input [(ngModel)]="client.ca" >
+    <button (click)="add()" type="submit" class="btn btn-success">ajouter</button>
+    <div app-asc-bold [ngClass]="{'canegatif':client.ca<0}" *ngIf="client.prenom && client.nom && client.ca!=0">phrase:
+      {{client.prenom}} {{client.nom}} {{client.ca}}
+    </div>
+  </div>
+</div>
+
+
+<app-asc-bold-element prefix="Voici les indications de l'ajout en cours" [text]="client.nom"></app-asc-bold-element>
+<div>
+  <app-asc-tooltip asc-tooltip-titre="Filtrer sur le champ de saisie situé ci-dessous"> Filtre</app-asc-tooltip>
+</div>
+
+
+
+<div>
+  <input type="text" [(ngModel)]="filtre"/>
+  <table class="table">
+    <tr>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">CA</th>
+    </tr>
+    <!-- <tr *ngFor="let c of myclient">-->
+    <tr *ngFor="let c of filter(); let index=index">
+      <!--      <td><a href="" [routerLink]="['/list',c.nom]" routerLinkActive="active">Detail du client</a></td>-->
+      <a href="" [routerLink]="['/client',c.nom]" routerLinkActive="active">detail de {{c.nom}}</a>
+      <td scope="row">{{c.prenom}}</td>
+      <td scope="row">{{c.nom}}</td>
+      <td scope="row">{{c.ca}}</td>
+      <button (click)=supp(index) type="submit" class="btn btn-success">
+        Supprimer
+      </button>
+      <div class="form-group">
+        <button (click)=addClient(client.prenom,client.nom,client.ca) type="submit" class="btn btn-success">
+          Enregistrer
+        </button>
+
+      </div>
+    </tr>
+  </table>
+
+</div>
